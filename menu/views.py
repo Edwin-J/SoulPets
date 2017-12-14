@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from . import models
 
-def pet_list(request) :
+def main(request) :
     return render(request, "menu/main.html")
 
 def bombei(request) :
@@ -21,3 +21,9 @@ def siva(request) :
 
 def tabie(request) :
     return render(request, "menu/TabiePage.html")
+
+def bierd(request) :
+    return render(request, "menu/BierdPage.html")
+
+def hedge(request) :
+    return render(request, "menu/HedgePage.html")

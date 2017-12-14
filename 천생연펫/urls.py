@@ -20,6 +20,7 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('menu.urls', namespace = 'menu')),
+    url(r'^main', include('menu.urls', namespace = 'menu')),
     url(r'^bombei', include('menu.urls', namespace = 'bombei')),
     url(r'^chiwawa', include('menu.urls', namespace = 'chiwawa')),
     url(r'^cogi', include('menu.urls', namespace = 'cogi')),

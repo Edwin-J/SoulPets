@@ -8,6 +8,7 @@ class Pet(models.Model) :
     price = models.IntegerField()
     info = models.TextField(max_length = 300, default = "정보를 300자 이내로 작성하여 주세요.")
     imgs = models.ImageField()
+    hits = models.IntegerField(null = True, blank = True)
 
     def __str__(self)   :
         return self.title

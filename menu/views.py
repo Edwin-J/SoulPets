@@ -1,8 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import models
+from .models import Pet
+from .forms import PetForm
+from django.contrib.auth.models import User
 
 def main(request) :
     return render(request, "menu/main.html")
+
+user = User.objects.get(username='admin')
+def new(request) :
+    if request.method == "PET" :
+        form = PetForm(request.PET)
+        if form.is_valid() :
+            pet = form.save(commit=False)
+            post.save()
+            return redirect('../../')
+
+    else :
+        form = PetForm()
+
+    return render(request, 'menu/post_new.html', {'form' : form})
 
 def bombei(request) :
     return render(request, "menu/bombeiPage.html")

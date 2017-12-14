@@ -11,18 +11,17 @@
 <body>
     <a href = 'main.html'><img src="{% static 'menu/img/Title.png' %}"  style="position: absolute; left: 50px; top: 50px"> <!-- 타이틀 이미지 --></a>
 
+    <a href = 'new.html'><img src="{% static 'menu/img/postBtn.png' %}" style="position: absolute; left: 1770px; top: 30px"></a>
+
     <!--메뉴 -->
-    <img onclick="$('html, body').stop().animate( { scrollTop : '190' } );" src= "{% static 'menu/img/dog.png' %}" style="position: absolute; left: 1000px; top: 200px">
-    <img onclick="$('html, body').stop().animate( { scrollTop : '930' } );" src= "{% static 'menu/img/cat.png' %}"  style="position: absolute; left: 1350px; top: 200px">
-    <img onclick="$('html, body').stop().animate( { scrollTop : '1800' } );" src= "{% static 'menu/img/etc.png' %}" style="position: absolute; left: 1700px; top: 200px">
-
-    <div align = "right"><button type="button" style="border : 0; background-color : white; position: absolute; left: 1770px; top: 30px;"><img src="{% static 'menu/img/postBtn.png' %}"></button></div>
-
+    <a href = ""><img src= "{% static 'menu/img/dog.png' %}" style="position: absolute; left: 1000px; top: 200px"></a>
+    <a href = ""><img src= "{% static 'menu/img/cat.png' %}"  style="position: absolute; left: 1350px; top: 200px"></a>
+    <a href = ""><img src= "{% static 'menu/img/etc.png' %}" style="position: absolute; left: 1700px; top: 200px"></a>
 
     <!--강아지 -->
     <div id = "#Dog">
       <img src="{% static 'img/background.jpg' %}" style="position: absolute; left: 0px; top: 300px">
-      <a href = 'chiwawa.html'><img src="{% static 'menu/img/hDog.png' %}" style="position: absolute; left: 100px; top: 450px"></a>
+      <a href = 'chiwawaPage.html'><img src="{% static 'menu/img/hDog.png' %}" style="position: absolute; left: 100px; top: 450px"></a>
       <a href = 'siva.html'><img src="{% static 'menu/img/cDog.png' %}" style="position: absolute; left: 700px; top: 450px"></a>
       <a href = 'cogi.html'><img src="{% static 'menu/img/wDog.png' %}" style="position: absolute; left: 1300px; top: 450px"></a>
     </div>
@@ -42,9 +41,8 @@
       <a href = 'bierd.html'><img src="{% static 'menu/img/bEtc.png' %}" style="position: absolute; left: 1000px; top: 1800px"></a>
     </div>
 
-    <button type="button" onclick="$('html, body').stop().animate( { scrollTop : '-2000' } );" style="border : 0; background-color:whilte; position: absolute; left: 1800px; top: 2200px; font-size : 15pt;"><img src="{% static 'menu/img/topBtn.png' %}"></button>
-<body>
-
-<body>
+    <button type="button" onclick="$('html, body').stop().animate( { scrollTop : '-2000' } );" style="border : 0; background-color:whilte; position: absolute; left: 1800px; top: 2200px; font-size : 15pt;">
+      <img src="{% static 'menu/img/topBtn.png' %}">
+    </button>
 
 </html>

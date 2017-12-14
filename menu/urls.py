@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.main, name = 'main'),
     url(r'^main', views.main, name = 'main'),
+    url(r'^new', views.new, name = 'new'),
     url(r'^bombei', views.bombei, name = 'bombei'),
     url(r'^chiwawa', views.chiwawa, name = 'chiwawa'),
     url(r'^cogi', views.cogi, name = 'cogi'),

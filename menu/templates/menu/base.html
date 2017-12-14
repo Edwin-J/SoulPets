@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<body>
+    <a href = 'main.html'><img src="{% static 'menu/img/Title.png' %}"  style="position: absolute; left: 50px; top: 50px"> <!-- 타이틀 이미지 --></a>
+
+    <!--메뉴 -->
+    <a href = ""><img src= "{% static 'menu/img/dog.png' %}" style="position: absolute; left: 1000px; top: 200px"></a>
+    <a href = ""><img src= "{% static 'menu/img/cat.png' %}"  style="position: absolute; left: 1350px; top: 200px"></a>
+    <a href = ""><img src= "{% static 'menu/img/etc.png' %}" style="position: absolute; left: 1700px; top: 200px"></a>
+
+    <a href = 'new.html'><img src="{% static 'menu/img/postBtn.png' %}" style="position: absolute; left: 1770px; top: 30px"></a>
+
+    {% block content %}
+    {% endblock %}
+
+    </br></br></br></br></br>
+    <h3>댓글</h3>
+    <hr align=left width=60%>
+    <button type="button" style="width:80pt; height:30pt; margin : 5px 0px 0px 0px; background-color:#BDBDBD; font-size : 13pt;">등록</button></br>
+    <textarea rows="10" cols="80" name="contents" style="margin : 40px 10px 0px 0px"></textarea>
+
+    <button type="button" onclick="$('html, body').stop().animate( { scrollTop : '-2000' } );" style="border : 0; background-color:whilte; position: absolute; left: 1800px; top: 2200px; font-size : 15pt;"><img src="{% static 'menu/img/topBtn.png' %}"></button>
+<body>
+</html>

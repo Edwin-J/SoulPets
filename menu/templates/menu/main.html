@@ -10,34 +10,34 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <body>
-    <img src="{% static 'img/Title.png' %}"  style="position: absolute; left: 50px; top: 50px"> <!-- 타이틀 이미지 -->
+    <a href "http://127.0.0.1:8000/"><img src="{% static 'menu/img/Title.png' %}"  style="position: absolute; left: 50px; top: 50px"> <!-- 타이틀 이미지 --></a>
 
     <!--메뉴 -->
-    <img onclick="$('html, body').stop().animate( { scrollTop : '190' } );" src="Resource/dog.png" style="position: absolute; left: 1000px; top: 200px">
-    <img onclick="$('html, body').stop().animate( { scrollTop : '930' } );" src= "Resource/cat.png"  style="position: absolute; left: 1350px; top: 200px">
-    <img onclick="$('html, body').stop().animate( { scrollTop : '1800' } );" src="Resource/etc.png" style="position: absolute; left: 1700px; top: 200px">
+    <img onclick="$('html, body').stop().animate( { scrollTop : '190' } );" src= "{% static 'menu/img/dog.png' %}" style="position: absolute; left: 1000px; top: 200px">
+    <img onclick="$('html, body').stop().animate( { scrollTop : '930' } );" src= "{% static 'menu/img/cat.png' %}"  style="position: absolute; left: 1350px; top: 200px">
+    <img onclick="$('html, body').stop().animate( { scrollTop : '1800' } );" src= "{% static 'menu/img/etc.png' %}" style="position: absolute; left: 1700px; top: 200px">
 
     <!--강아지 -->
-    <div id = "Dog">
-      <img src="{% static 'img/background.png' %}" style="position: absolute; left: 0px; top: 300px">
-      <a href ""><img src="{% static 'img/hDog.png' %" style="position: absolute; left: 100px; top: 450px"></a>
-      <a href ""><img src="{% static 'img/bDog.png' %}" style="position: absolute; left: 700px; top: 450px"></a>
-      <a href ""><img src="{% static 'img/wDog.png' %}" style="position: absolute; left: 1300px; top: 450px"></a>
+    <div id = "#Dog">
+      <img src="{% static 'img/background.jpg' %}" style="position: absolute; left: 0px; top: 300px">
+      <a href "http://127.0.0.1:8000/chiwawa/"><img src="{% static 'menu/img/hDog.png' %}" style="position: absolute; left: 100px; top: 450px"></a>
+      <a href "http://127.0.0.1:8000/siva/"><img src="{% static 'menu/img/cDog.png' %}" style="position: absolute; left: 700px; top: 450px"></a>
+      <a href "http://127.0.0.1:8000/cogi/"><img src="{% static 'menu/img/wDog.png' %}" style="position: absolute; left: 1300px; top: 450px"></a>
     </div>
 
     <!--고양이-->
     <div id = "#Cat">
-      <img src="{% static 'img/background.png' %}" style="position: absolute; left: 0px; top: 970px">
-      <a href ""><img src="{% static 'img/sCat.png' %}" style="position: absolute; left: 100px; top: 1150px"></a>
-      <a href ""><img src="{% static 'img/bCat.png' %}" style="position: absolute; left: 700px; top: 1150px"></a>
-      <a href ""><img src="{% static 'img/nCat.png' %}" style="position: absolute; left: 1300px; top: 1150px"></a>
+      <img src="{% static 'img/background.jpg' %}" style="position: absolute; left: 0px; top: 970px">
+      <a href "http://127.0.0.1:8000/shiam"><img src="{% static 'menu/img/sCat.png' %}" style="position: absolute; left: 100px; top: 1150px"></a>
+      <a href "http://127.0.0.1:8000/bombei"><img src="{% static 'menu/img/bCat.png' %}" style="position: absolute; left: 700px; top: 1150px"></a>
+      <a href "http://127.0.0.1:8000/siva"><img src="{% static 'menu/img/nCat.png' %}" style="position: absolute; left: 1300px; top: 1150px"></a>
     </div>
 
     <!--그 외 -->
     <div id = "#Etc">
-      <img src="{% static 'img/background.png' %}" style="position: absolute; left: 0px; top: 1650px">
-      <a href ""><img src="{% static 'img/hEtc.png' %}" style="position: absolute; left: 350px; top: 1800px"></a>
-      <a href ""><img src="{% static 'img/bEtc.png' %}" style="position: absolute; left: 1000px; top: 1800px"></a>
+      <img src="{% static 'img/background.jpg' %}" style="position: absolute; left: 0px; top: 1650px">
+      <a href ""><img src="{% static 'menu/img/hEtc.png' %}" style="position: absolute; left: 350px; top: 1800px"></a>
+      <a href ""><img src="{% static 'menu/img/bEtc.png' %}" style="position: absolute; left: 1000px; top: 1800px"></a>
     </div>
 <body>
 

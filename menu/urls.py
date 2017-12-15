@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^tabie', views.tabie, name = 'tabie'),
     url(r'^bierd', views.bierd, name = 'bierd'),
     url(r'^hedge', views.hedge, name = 'hedge'),
+
+    url(r'^post/(?P<pk>\d+)/$', views.detail, name='detail'),
 ]

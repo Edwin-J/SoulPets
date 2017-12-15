@@ -5,10 +5,16 @@ from django.utils import timezone
 class Pet(models.Model) :
     title = models.CharField(max_length = 20)
     kind = models.CharField(max_length = 10)
-    price = models.IntegerField(max_length = 10)
-    info = models.TextField(max_length = 300, default = "정보를 300자 이내로 작성하여 주세요.")
+    price = models.IntegerField()
+    info = models.TextField(null = True, blank = True)
+    created_date = models.DateTimeField(default = timezone.now)
+    published_date = models.DateTimeField(blank = True, null = True)
+    hits = models.IntegerField(null = True, blank = True, default = 0)
     imgs = models.ImageField()
-    hits = models.IntegerField(null = True, blank = True)
+
+    def publish(self) :
+        self.published_date = timezone.now()
+        self.save()
 
     def __str__(self)   :
         return self.title
@@ -16,8 +22,13 @@ class Pet(models.Model) :
 class Comment(models.Model) :
     post = models.ForeignKey(Pet, related_name="comments")
     writer = models.ForeignKey(User)
-    text = models.TextField()
+    text = models.TextField(null = True, blank = True)
     created_date = models.DateTimeField(default=timezone.now)
+    approve_comment = models.BooleanField(default=False)
+
+    def approve(self) :
+        self.approved_comment = True
+        self.save()
 
     def __str__(self) :
         return self.text

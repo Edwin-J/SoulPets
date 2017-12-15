@@ -4,13 +4,86 @@
 
 <head>
   <meta charset="utf-8">
+  <title>천생연PET</title>
   <link rel="stylesheet" href="{% static 'menu/css/bootstrap.css'%}">
   <link href="{% static 'menu/css/style.css'%}" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 
-<title>천생연PET</title>    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 
 <body>
+  <style type="text/css">
+    body{
+      font-family: HanMaum;
+    }
+
+    footer{
+      font-family: HanMaum;
+    }
+
+    @font-face{
+      font-family:'HanMaum';
+      src: url({% static 'blog/fonts/KBIZ한마음명조B.ttf'%}) format('truetype');
+    }
+
+
+    #header_text1{
+      margin-top: 3%;
+      margin-left: 3%;
+      text-align: center;
+      display: inline-block;
+
+      color: #000000;
+    }
+    #donI{
+      margin-left: 1%;
+      text-align: center;
+      display: inline-block;
+    }
+
+    h3{
+      font-size:1.1vmax;
+    }
+
+    .mega-dropdown {
+    position: static !important;
+    }
+    .mega-dropdown-menu {
+      margin-top:0%;
+      padding: 1% 0%;
+      width: 100%;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+
+    h4{
+      font-size:1vmax;
+    }
+
+    #excep{
+      font-size:0.9vmax !important;
+    }
+
+    h5{
+      font-size: 0.6vmax;
+    }
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $(".dropdown").hover(
+        function() {
+            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("20em");
+            $(this).toggleClass('open');
+        },
+        function() {
+            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideUp("20em");
+            $(this).toggleClass('open');
+        }
+    );
+  });
+  </script>
   <div>
     <a href = 'main.html'>
       <img src="{% static 'menu/img/Title.png' %}"  style="position: absolute; left: 50px; top: 50px"> <!-- 타이틀 이미지 -->
@@ -28,27 +101,49 @@
     {% endblock %}
 
     </br></br></br></br></br>
-    <div>
-      <div>
-        <h3>Comments ({{ pet.comments.count }})</h3>
-        {% for comment in pet.comments.all %}
-        <div class="media">
-          <div class="media-left">
-            <a href="#">
-              <img class="media-object" src="{% static 'menu/img/DFootPrint.png' %}" alt="">
-            </a>
+    <div	class="row">
+      <div	class="col-xs-12	col-sm-6	col-md-7	col-lg-7	col-md-of fset-3	col-lg-offset-2">
+        <h3> 댓글 수	({{	pet.comments.count	}}) </h3>
+        <p></p>
+        {%	if	user.is_authenticated	%}
+        <form	method="POST">{%	csrf_token	%}
+          <!--	{{	form.as_p	}}	-->
+          <div	class="form-group">
+            <input	type="text"	name="{{	form.text.html_name	}}"	class="form-control"	placeholder="Write	comment">
+            <button	type="submit"	class="btn	btn-default">댓글 작성</ button>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-            <p>{{ comment.text|linebreaks }}</p>
-            <i>{{ comment.created_date }}</i>
+          </form>
+          {%	else	%}
+          <p><a	href="{%	url	'accounts:login'	%}">Login</a>	to	post	comment</p>
+          {%	endif	%}
+              {%	for	comment	in	pet.comments.all	%}
+              {%	if	comment.approved_comment	%}
+              <div	class="media">
+                <div	class="media-left">
+                  <a	href="#">
+                    <img	class="media-object"	src="{%	static	'menu/images/avatar.png'	%}"	alt="">
+                  </a>
+                </div>
+                <div	class="media-body">
+                  <h4	class="media-heading">{{	comment.writer	}}</h4>
+                    <p>{{	comment.text|linebreaks	}}</p>
+                    <i>{{	comment.created_date	}}</i>
+                  </div>
+                </div>
+                {%	endif	%}
+                {%	endfor	%}
+              </div>
+            </div>
           </div>
-        </div>
-        {% empty %}
-        {% endfor %}
+          <div class="container">
+    <div class="rows">
+      <div class="col-xs-12" style="text-align:center;">
+        <br>
+        <h5><a href=''>이용약관|개인정보처리방침</a></h5>
+        <h5> 프론트 : 오정원  </h5>
+        <h5> 서버 : 오민재 </h5>
       </div>
     </div>
   </div>
-
 <body>
 </html>

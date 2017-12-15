@@ -1,10 +1,26 @@
-{% extends 'menu/base.html' %}
 {% load staticfiles %}
 
-{% block content %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<body>
+    <a href = 'main.html'><img src="{% static 'menu/img/Title.png' %}"  style="position: absolute; left: 50px; top: 50px"> <!-- 타이틀 이미지 --></a>
+
+    <a href = 'new.html'><img src="{% static 'menu/img/postBtn.png' %}" style="position: absolute; left: 1770px; top: 30px"></a>
+
+    <!--메뉴 -->
+    <a href = ""><img src= "{% static 'menu/img/dog.png' %}" style="position: absolute; left: 1000px; top: 200px"></a>
+    <a href = ""><img src= "{% static 'menu/img/cat.png' %}"  style="position: absolute; left: 1350px; top: 200px"></a>
+    <a href = ""><img src= "{% static 'menu/img/etc.png' %}" style="position: absolute; left: 1700px; top: 200px"></a>
+<div style="margin-top:20%;">
 <h1>New post</h1>
 <form method="POST" class="post-form">{% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Save</button>
+    <button type="submit" class="save btn btn-default">게시물 작성하기</button>
 </form>
-{% endblock %}
+</div>

@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . import models
-from .models import Pet
-from .forms import PetForm
+from .models import Pet, Comment
+from .forms import PetForm, CommentForm
 from django.contrib.auth.models import User
 
 def main(request) :
@@ -9,17 +9,28 @@ def main(request) :
 
 user = User.objects.get(username='admin')
 def new(request) :
-    if request.method == "PET" :
-        form = PetForm(request.PET)
+    if request.method == "POST" :
+        form = PetForm(request.POST)
         if form.is_valid() :
             pet = form.save(commit=False)
-            post.save()
-            return redirect('../../')
+            pet.save()
+            return redirect('main')
 
     else :
         form = PetForm()
+        return render(request, 'menu/post_new.html', {'form' : form})
 
-    return render(request, 'menu/post_new.html', {'form' : form})
+def base(request) :
+    pet = get_object_or_404(Pet)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = pet
+            comment.save()
+            return redirect('main')
+    else :
+        form = CommentForm()
 
 def bombei(request) :
     return render(request, "menu/bombeiPage.html")
@@ -34,7 +45,18 @@ def shiam(request) :
     return render(request, "menu/shiamPage.html")
 
 def siva(request) :
-    return render(request, "menu/sivaPage.html")
+    pet = get_object_or_404(Pet)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = pet
+            comment.save()
+            return redirect('main')
+    else :
+        form = CommentForm()
+
+    return render(request, "menu/sivaPage.html", {'form' : form})
 
 def tabie(request) :
     return render(request, "menu/TabiePage.html")
